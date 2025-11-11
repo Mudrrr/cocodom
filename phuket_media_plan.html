@@ -216,11 +216,16 @@
             border-radius: 15px;
             padding: 30px;
             margin-top: 30px;
-            display: none;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.3s ease, max-height 0.5s ease;
         }
 
         .results-section.active {
-            display: block;
+            opacity: 1;
+            max-height: 2000px;
+            overflow: visible;
         }
 
         table {
@@ -608,7 +613,7 @@
                     </div>
                 </div>
 
-                <button class="calculate-btn" onclick="calculateFunnel()">Рассчитать воронку</button>
+                <button class="calculate-btn" onclick="calculateFunnel(); this.textContent='Рассчитано ✓'; setTimeout(() => this.textContent='Рассчитать воронку', 2000);">Рассчитать воронку</button>
 
                 <div id="calculatorResults" class="results-section">
                     <h3 style="color: #667eea; font-size: 1.8em; margin-bottom: 25px;">Результаты расчета</h3>
@@ -694,10 +699,15 @@
         }
 
         function calculateFunnel() {
-            // Получаем значения
-            const targetSales = parseInt(document.getElementById('targetSales').value);
-            const apartmentSales = parseInt(document.getElementById('apartmentSales').value);
-            const villaSales = parseInt(document.getElementById('villaSales').value);
+            console.log('Функция calculateFunnel вызвана!');
+            
+            try {
+                // Получаем значения
+                const targetSales = parseInt(document.getElementById('targetSales').value);
+                const apartmentSales = parseInt(document.getElementById('apartmentSales').value);
+                const villaSales = parseInt(document.getElementById('villaSales').value);
+                
+                console.log('Данные:', {targetSales, apartmentSales, villaSales});
             const apartmentPrice = parseFloat(document.getElementById('apartmentPrice').value);
             const villaPrice = parseFloat(document.getElementById('villaPrice').value);
             const apartmentMargin = parseFloat(document.getElementById('apartmentMargin').value) / 100;
@@ -783,9 +793,18 @@
 
             document.getElementById('breakeven_text').innerHTML = breakevenText;
             document.getElementById('calculatorResults').classList.add('active');
+            
+            console.log('Расчет завершен успешно!');
 
             // Прокрутка к результатам
-            document.getElementById('calculatorResults').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            setTimeout(() => {
+                document.getElementById('calculatorResults').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 100);
+            
+            } catch (error) {
+                console.error('Ошибка в расчетах:', error);
+                alert('Произошла ошибка при расчете. Проверьте консоль (F12) для деталей.');
+            }
         }
     </script>
 </body>
