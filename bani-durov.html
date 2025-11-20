@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Модульные и Каркасные Бани под ключ в Воронеже от 300 000₽ - Durov House</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .7; }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .quiz-step {
+            display: none;
+        }
+        
+        .quiz-step.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .progress-bar {
+            transition: width 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .benefit-card {
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+        }
+        
+        .timer-box {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+        
+        .phone-pulse {
+            animation: phone-pulse 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes phone-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .sticky-cta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            animation: slideIn 0.5s ease;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(400px); }
+            to { transform: translateX(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Хедер -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl mr-3">DH</div>
+                    <div>
+                        <div class="text-lg font-bold">Durov.House</div>
+                        <div class="text-xs text-gray-600">Производство бань в Воронеже</div>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="tel:+79066773555" class="text-blue-600 font-bold text-lg phone-pulse">+7 906 677-35-55</a>
+                    <button onclick="openQuiz()" class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition font-semibold">
+                        Рассчитать стоимость
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero секция -->
+    <section class="hero-gradient text-white py-16 md:py-24 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/2 h-full opacity-10">
+            <div class="floating text-9xl">🛁</div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <!-- Таймер срочности -->
+                    <div class="timer-box text-white px-6 py-3 rounded-lg inline-block mb-6 pulse-animation">
+                        <div class="flex items-center space-x-3">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span class="font-bold">Акция! При заказе в октябре - печь 50кг камней в подарок!</span>
+                        </div>
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                        Баня Вашей Мечты<br/>
+                        <span class="text-green-400">Готова за 14 дней</span>
+                    </h1>
+                    
+                    <p class="text-xl md:text-2xl mb-8 text-blue-100">
+                        Модульные и каркасные бани под ключ в Воронеже от 300 000₽. Можно париться в день установки!
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center space-x-3">
+                            <svg class="w-6 h-6 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-lg">Изготовление за 14 дней на собственном производстве</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <svg class="w-6 h-6 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-lg">Установка за 1-3 дня без строительства на участке</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <svg class="w-6 h-6 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-lg">Печь с камнями и полным комплектом в подарок</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <svg class="w-6 h-6 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-lg">Гарантия 10 лет на каркас и конструкцию</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button onclick="openQuiz()" class="cta-button text-white px-8 py-4 rounded-lg font-bold text-lg">
+                            🎁 Получить расчет + подарок
+                        </button>
+                        <a href="tel:+79066773555" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition text-center">
+                            📞 Позвонить сейчас
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-8 border border-white border-opacity-20">
+                        <h3 class="text-2xl font-bold mb-6">⚡ Узнайте точную стоимость за 2 минуты</h3>
+                        <div class="space-y-4">
+                            <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                                <div class="flex items-center space-x-3 mb-2">
+                                    <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <span class="font-semibold">Подбор под ваши потребности</span>
+                                </div>
+                            </div>
+                            <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                                <div class="flex items-center space-x-3 mb-2">
+                                    <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <span class="font-semibold">Расчет с учетом доставки</span>
+                                </div>
+                            </div>
+                            <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                                <div class="flex items-center space-x-3 mb-2">
+                                    <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <span class="font-semibold">Консультация специалиста</span>
+                                </div>
+                            </div>
+                            <button onclick="openQuiz()" class="w-full bg-green-500 text-white px-6 py-4 rounded-lg font-bold text-lg hover:bg-green-600 transition">
+                                Начать расчет →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 scroll-indicator">
+            <svg class="w-8 h-8 text-white opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Квиз -->
+    <section id="quiz-section" class="py-16 bg-gradient-to-b from-gray-50 to-white hidden">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto bg-white shadow-2xl rounded-2xl overflow-hidden">
+                <!-- Прогресс бар -->
+                <div class="bg-gray-200 h-2">
+                    <div id="progress-bar" class="progress-bar bg-green-500 h-2" style="width: 0%"></div>
+                </div>
+                
+                <div class="p-8">
+                    <div id="quiz-content">
+                        <!-- Шаг 1 -->
+                        <div class="quiz-step active" data-step="1">
+                            <h2 class="text-3xl font-bold mb-6 text-center">Какой тип бани вас интересует?</h2>
+                            <p class="text-gray-600 text-center mb-8">Выберите наиболее подходящий вариант</p>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <button onclick="nextStep(2, 'Модульная')" class="quiz-option group bg-gradient-to-br from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 p-6 rounded-xl border-2 border-blue-200 hover:border-blue-500 transition text-left">
+                                    <div class="text-4xl mb-3">🏠</div>
+                                    <div class="font-bold text-xl mb-2">Модульная баня</div>
+                                    <div class="text-gray-600 text-sm">Готовые модули, быстрая установка</div>
+                                    <div class="mt-4 text-blue-600 font-semibold">От 300 000₽ →</div>
+                                </button>
+                                <button onclick="nextStep(2, 'Каркасная')" class="quiz-option group bg-gradient-to-br from-green-50 to-green-100 hover:from-green-100 hover:to-green-200 p-6 rounded-xl border-2 border-green-200 hover:border-green-500 transition text-left">
+                                    <div class="text-4xl mb-3">🌲</div>
+                                    <div class="font-bold text-xl mb-2">Каркасная баня</div>
+                                    <div class="text-gray-600 text-sm">Классическая технология, любые размеры</div>
+                                    <div class="mt-4 text-green-600 font-semibold">От 350 000₽ →</div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Шаг 2 -->
+                        <div class="quiz-step" data-step="2">
+                            <h2 class="text-3xl font-bold mb-6 text-center">Какой размер бани вам нужен?</h2>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <button onclick="nextStep(3, '3x4')" class="quiz-option bg-gray-50 hover:bg-blue-50 p-6 rounded-xl border-2 border-gray-200 hover:border-blue-500 transition">
+                                    <div class="font-bold text-xl mb-2">3×4 м</div>
+                                    <div class="text-gray-600 text-sm mb-3">12 м²</div>
+                                    <div class="text-blue-600 font-semibold">2-3 человека</div>
+                                </button>
+                                <button onclick="nextStep(3, '4x4')" class="quiz-option bg-gray-50 hover:bg-blue-50 p-6 rounded-xl border-2 border-gray-200 hover:border-blue-500 transition">
+                                    <div class="font-bold text-xl mb-2">4×4 м</div>
+                                    <div class="text-gray-600 text-sm mb-3">16 м²</div>
+                                    <div class="text-blue-600 font-semibold">3-5 человек</div>
+                                </button>
+                                <button onclick="nextStep(3, '4x6')" class="quiz-option bg-gray-50 hover:bg-blue-50 p-6 rounded-xl border-2 border-gray-200 hover:border-blue-500 transition">
+                                    <div class="font-bold text-xl mb-2">4×6 м</div>
+                                    <div class="text-gray-600 text-sm mb-3">24 м²</div>
+                                    <div class="text-blue-600 font-semibold">5-8 человек</div>
+                                </button>
+                                <button onclick="nextStep(3, '6x6')" class="quiz-option bg-gray-50 hover:bg-blue-50 p-6 rounded-xl border-2 border-gray-200 hover:border-blue-500 transition">
+                                    <div class="font-bold text-xl mb-2">6×6 м</div>
+                                    <div class="text-gray-600 text-sm mb-3">36 м²</div>
+                                    <div class="text-blue-600 font-semibold">8-12 человек</div>
+                                </button>
+                                <button onclick="nextStep(3, 'Свой размер')" class="quiz-option bg-gradient-to-br from-purple-50 to-purple-100 hover:from-purple-100 hover:to-purple-200 p-6 rounded-xl border-2 border-purple-200 hover:border-purple-500 transition md:col-span-2">
+                                    <div class="font-bold text-xl mb-2">Индивидуальный размер</div>
+                                    <div class="text-gray-600 text-sm">Спроектируем под ваши потребности</div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Шаг 3 -->
+                        <div class="quiz-step" data-step="3">
+                            <h2 class="text-3xl font-bold mb-6 text-center">Комплектация</h2>
+                            <p class="text-gray-600 text-center mb-8">Что важно для вас?</p>
+                            <div class="space-y-4">
+                                <button onclick="nextStep(4, 'Эконом')" class="quiz-option w-full text-left bg-gray-50 hover:bg-blue-50 p-6 rounded-xl border-2 border-gray-200 hover:border-blue-500 transition">
+                                    <div class="flex justify-between items-center mb-3">
+                                        <div class="font-bold text-xl">💰 Эконом</div>
+                                        <div class="text-blue-600 font-bold text-xl">от 300 000₽</div>
+                                    </div>
+                                    <div class="text-sm text-gray-600">Базовая отделка, печь, утепление 100мм</div>
+                                </button>
+                                <button onclick="nextStep(4, 'Комфорт')" class="quiz-option w-full text-left bg-gray-50 hover:bg-green-50 p-6 rounded-xl border-2 border-gray-200 hover:border-green-500 transition">
+                                    <div class="flex justify-between items-center mb-3">
+                                        <div class="font-bold text-xl">✨ Комфорт</div>
+                                        <div class="text-green-600 font-bold text-xl">от 450 000₽</div>
+                                    </div>
+                                    <div class="text-sm text-gray-600">Качественная отделка вагонкой, душевая, мебель</div>
+                                </button>
+                                <button onclick="nextStep(4, 'Премиум')" class="quiz-option w-full text-left bg-gradient-to-r from-yellow-50 to-orange-50 hover:from-yellow-100 hover:to-orange-100 p-6 rounded-xl border-2 border-yellow-200 hover:border-yellow-500 transition">
+                                    <div class="flex justify-between items-center mb-3">
+                                        <div class="font-bold text-xl">👑 Премиум</div>
+                                        <div class="text-orange-600 font-bold text-xl">от 650 000₽</div>
+                                    </div>
+                                    <div class="text-sm text-gray-600">Липа/кедр, каменка премиум-класса, LED-подсветка, мебель под ключ</div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Шаг 4 -->
+                        <div class="quiz-step" data-step="4">
+                            <h2 class="text-3xl font-bold mb-6 text-center">У вас есть участок?</h2>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <button onclick="nextStep(5, 'Да, есть')" class="quiz-option bg-gray-50 hover:bg-blue-50 p-6 rounded-xl border-2 border-gray-200 hover:border-blue-500 transition">
+                                    <div class="text-4xl mb-3 text-center">✅</div>
+                                    <div class="font-bold text-xl text-center">Да, участок есть</div>
+                                </button>
+                                <button onclick="nextStep(5, 'Нет, в процессе')" class="quiz-option bg-gray-50 hover:bg-blue-50 p-6 rounded-xl border-2 border-gray-200 hover:border-blue-500 transition">
+                                    <div class="text-4xl mb-3 text-center">🔍</div>
+                                    <div class="font-bold text-xl text-center">В процессе покупки</div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Шаг 5 - Финальная форма -->
+                        <div class="quiz-step" data-step="5">
+                            <div class="text-center mb-8">
+                                <div class="text-6xl mb-4">🎉</div>
+                                <h2 class="text-3xl font-bold mb-4">Отлично! Осталось совсем немного</h2>
+                                <p class="text-gray-600">Оставьте контакты, и мы пришлем точный расчет стоимости + подарок</p>
+                            </div>
+                            
+                            <div class="bg-green-50 border-2 border-green-200 rounded-xl p-6 mb-6">
+                                <div class="flex items-center space-x-3 mb-2">
+                                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
+                                    </svg>
+                                    <span class="font-bold text-green-800">Ваш подарок: Печь + 50кг камней + ограждение для печи!</span>
+                                </div>
+                                <div class="text-sm text-green-700">Стоимость подарка: 45 000₽</div>
+                            </div>
+                            
+                            <form id="quiz-form" class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Ваше имя</label>
+                                    <input type="text" id="name" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none" placeholder="Как вас зовут?">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Телефон</label>
+                                    <input type="tel" id="phone" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none" placeholder="+7 (___) ___-__-__">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Населенный пункт (для расчета доставки)</label>
+                                    <input type="text" id="location" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none" placeholder="Например: Воронеж">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Как удобнее связаться?</label>
+                                    <div class="grid grid-cols-3 gap-3">
+                                        <button type="button" onclick="selectContact('phone')" class="contact-option px-4 py-3 border-2 border-gray-300 rounded-lg hover:border-blue-500 transition">
+                                            📞 Звонок
+                                        </button>
+                                        <button type="button" onclick="selectContact('whatsapp')" class="contact-option px-4 py-3 border-2 border-gray-300 rounded-lg hover:border-green-500 transition">
+                                            💬 WhatsApp
+                                        </button>
+                                        <button type="button" onclick="selectContact('telegram')" class="contact-option px-4 py-3 border-2 border-gray-300 rounded-lg hover:border-blue-400 transition">
+                                            ✈️ Telegram
+                                        </button>
+                                    </div>
+                                </div>
+                                <button type="submit" class="w-full cta-button text-white px-8 py-4 rounded-lg font-bold text-lg">
+                                    🎁 Получить расчет + подарок
+                                </button>
+                                <p class="text-xs text-gray-500 text-center">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности</p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Почему выбирают нас -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-4">Почему 847 семей выбрали Durov House?</h2>
+            <p class="text-xl text-gray-600 text-center mb-12">Мы не просто строим бани — мы создаем места силы и релаксации</p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="benefit-card bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl shadow-lg">
+                    <div class="text-5xl mb-4">⚡</div>
+                    <h3 class="text-2xl font-bold mb-3">Быстро</h3>
+                    <div class="text-4xl font-bold text-blue-600 mb-3">14 дней</div>
+                    <p class="text-gray-700">От заказа до установки. Изготавливаем на собственном производстве в Воронеже</p>
+                </div>
+                
+                <div class="benefit-card bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl shadow-lg">
+                    <div class="text-5xl mb-4">🛁</div>
+                    <h3 class="text-2xl font-bold mb-3">Готово к использованию</h3>
+                    <div class="text-4xl font-bold text-green-600 mb-3">В день установки</div>
+                    <p class="text-gray-700">Привезли, поставили, подключили — можно париться! Никакой грязи и строительства</p>
+                </div>
+                
+                <div class="benefit-card bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl shadow-lg">
+                    <div class="text-5xl mb-4">🎁</div>
+                    <h3 class="text-2xl font-bold mb-3">Все включено</h3>
+                    <div class="text-4xl font-bold text-purple-600 mb-3">45 000₽</div>
+                    <p class="text-gray-700">Печь с камнями, ограждение, аксессуары — всё в подарок при заказе</p>
+                </div>
+                
+                <div class="benefit-card bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-2xl shadow-lg">
+                    <div class="text-5xl mb-4">🏆</div>
+                    <h3 class="text-2xl font-bold mb-3">Гарантия</h3>
+                    <div class="text-4xl font-bold text-orange-600 mb-3">10 лет</div>
+                    <p class="text-gray-700">На несущий каркас и геометрию конструкции. Уверены в качестве!</p>
+                </div>
+                
+                <div class="benefit-card bg-gradient-to-br from-red-50 to-red-100 p-8 rounded-2xl shadow-lg">
+                    <div class="text-5xl mb-4">❄️</div>
+                    <h3 class="text-2xl font-bold mb-3">Утепление</h3>
+                    <div class="text-4xl font-bold text-red-600 mb-3">100 мм</div>
+                    <p class="text-gray-700">По всему контуру: пол, стены, потолок. Держит тепло даже при -30°C</p>
+                </div>
+                
+                <div class="benefit-card bg-gradient-to-br from-yellow-50 to-yellow-100 p-8 rounded-2xl shadow-lg">
+                    <div class="text-5xl mb-4">✏️</div>
+                    <h3 class="text-2xl font-bold mb-3">Индивидуально</h3>
+                    <div class="text-4xl font-bold text-yellow-600 mb-3">100%</div>
+                    <p class="text-gray-700">Каждая баня уникальна. Изменим планировку под ваши мечты</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Типовые проекты -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-4">Популярные проекты бань</h2>
+            <p class="text-xl text-gray-600 text-center mb-12">Выбирайте готовый проект или создадим индивидуальный</p>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <!-- Баня 1 -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition">
+                    <div class="bg-gray-300 h-48 flex items-center justify-center text-gray-500">
+                        Фото бани 3×4
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-2xl font-bold">Баня 3×4</h3>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">ХИТ</span>
+                        </div>
+                        <div class="text-gray-600 mb-4">
+                            <div>📐 12 м²</div>
+                            <div>👥 2-3 человека</div>
+                            <div>🛁 Парная + мойка</div>
+                        </div>
+                        <div class="border-t pt-4 mb-4">
+                            <div class="text-sm text-gray-500 mb-1">Цена от:</div>
+                            <div class="text-3xl font-bold text-blue-600">300 000₽</div>
+                        </div>
+                        <button onclick="openQuiz()" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+                            Выбрать проект
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Баня 2 -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition">
+                    <div class="bg-gray-300 h-48 flex items-center justify-center text-gray-500">
+                        Фото бани 4×4
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-2xl font-bold">Баня 4×4</h3>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">ПОПУЛЯРНО</span>
+                        </div>
+                        <div class="text-gray-600 mb-4">
+                            <div>📐 16 м²</div>
+                            <div>👥 3-5 человек</div>
+                            <div>🛁 Парная + мойка + комната отдыха</div>
+                        </div>
+                        <div class="border-t pt-4 mb-4">
+                            <div class="text-sm text-gray-500 mb-1">Цена от:</div>
+                            <div class="text-3xl font-bold text-blue-600">420 000₽</div>
+                        </div>
+                        <button onclick="openQuiz()" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+                            Выбрать проект
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Баня 3 -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition">
+                    <div class="bg-gray-300 h-48 flex items-center justify-center text-gray-500">
+                        Фото бани 6×6
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-2xl font-bold">Баня 6×6</h3>
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-semibold">ПРЕМИУМ</span>
+                        </div>
+                        <div class="text-gray-600 mb-4">
+                            <div>📐 36 м²</div>
+                            <div>👥 8-12 человек</div>
+                            <div>🛁 Парная + мойка + комната отдыха + терраса</div>
+                        </div>
+                        <div class="border-t pt-4 mb-4">
+                            <div class="text-sm text-gray-500 mb-1">Цена от:</div>
+                            <div class="text-3xl font-bold text-blue-600">780 000₽</div>
+                        </div>
+                        <button onclick="openQuiz()" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+                            Выбрать проект
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <p class="text-xl mb-6">Не нашли подходящий проект?</p>
+                <button onclick="openQuiz()" class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-10 py-4 rounded-lg font-bold text-lg hover:from-purple-700 hover:to-pink-700 transition">
+                    🎨 Создать индивидуальный проект
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Видео установки -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-4">Смотрите как мы устанавливаем баню за 3 дня</h2>
+            <p class="text-xl text-gray-600 text-center mb-12">Без строительства, грязи и стресса на вашем участке</p>
+            
+            <div class="max-w-5xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="md:col-span-2">
+                        <div class="bg-black aspect-video rounded-2xl shadow-2xl flex items-center justify-center">
+                            <div class="text-white text-center">
+                                <div class="text-6xl mb-4">▶️</div>
+                                <div class="text-xl">Видео установки бани</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl">
+                            <div class="flex items-center space-x-3 mb-2">
+                                <div class="text-3xl">📅</div>
+                                <div>
+                                    <div class="font-bold text-xl">День 1</div>
+                                    <div class="text-sm text-gray-600">Фундамент и доставка</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl">
+                            <div class="flex items-center space-x-3 mb-2">
+                                <div class="text-3xl">🏗️</div>
+                                <div>
+                                    <div class="font-bold text-xl">День 2</div>
+                                    <div class="text-sm text-gray-600">Сборка модулей</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl">
+                            <div class="flex items-center space-x-3 mb-2">
+                                <div class="text-3xl">✅</div>
+                                <div>
+                                    <div class="font-bold text-xl">День 3</div>
+                                    <div class="text-sm text-gray-600">Подключение и запуск</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-orange-400 to-red-500 text-white p-6 rounded-xl text-center">
+                            <div class="text-4xl mb-2">🎉</div>
+                            <div class="font-bold text-lg">Можно париться!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Комплектации -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-4">Выберите комплектацию</h2>
+            <p class="text-xl text-gray-600 text-center mb-12">Три уровня оснащения для разных бюджетов</p>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Эконом -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                    <div class="bg-gradient-to-br from-gray-100 to-gray-200 p-6 text-center">
+                        <div class="text-4xl mb-2">💰</div>
+                        <h3 class="text-2xl font-bold mb-2">Эконом</h3>
+                        <div class="text-3xl font-bold text-blue-600">от 300 000₽</div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div class="flex items-start space-x-2">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm">Утепление 100мм</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm">Вагонка хвойных пород</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm">Печь с камнями</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm">Полки в парной</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm">Окна ПВХ</span>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openQuiz()" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+                            Выбрать
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Комфорт -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden border-4 border-green-500 relative">
+                    <div class="absolute top-0 right-0 bg-green-500 text-white px-4 py-1 rounded-bl-lg text-sm font-bold">
+                        ВЫБОР 67%
+                    </div>
+                    <div class="bg-gradient-to-br from-green-100 to-green-200 p-6 text-center">
+                        <div class="text-4xl mb-2">✨</div>
+                        <h3 class="text-2xl font-bold mb-2">Комфорт</h3>
+                        <div class="text-3xl font-bold text-green-600">от 450 000₽</div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div class="flex items-start space-x-2">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm">Всё из комплектации "Эконом"</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm">Вагонка Липа в парной</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm">Душевая кабина</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm">Мебель (стол, лавки)</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19  7"></path>
+                            </svg>
+                            <span class="text-sm">Водонагреватель 80л</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm">Светодиодное освещение</span>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openQuiz()" class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition">
+                            Выбрать
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Премиум -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                    <div class="bg-gradient-to-br from-yellow-100 to-orange-200 p-6 text-center">
+                        <div class="text-4xl mb-2">👑</div>
+                        <h3 class="text-2xl font-bold mb-2">Премиум</h3>
+                        <div class="text-3xl font-bold text-orange-600">от 650 000₽</div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div class="flex items-start space-x-2">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm">Всё из комплектации "Комфорт"</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm">Кедр или липа премиум</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm">Печь премиум с парогенератором</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm">LED-подсветка с RGB</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm">Мебель под заказ</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm">Система "умный дом"</span>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openQuiz()" class="w-full bg-gradient-to-r from-yellow-500 to-orange-500 text-white py-3 rounded-lg font-semibold hover:from-yellow-600 hover:to-orange-600 transition">
+                            Выбрать
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">Отзывы наших клиентов</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl mr-3">А</div>
+                        <div>
+                            <div class="font-bold">Алексей М.</div>
+                            <div class="text-sm text-gray-600">Рамонский район</div>
+                        </div>
+                    </div>
+                    <div class="text-yellow-500 mb-3">★★★★★</div>
+                    <p class="text-gray-700">"Баня готова была через 2 недели! Привезли, поставили за 2 дня. В тот же вечер уже парились с друзьями. Качество отличное, все как обещали."</p>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-xl mr-3">М</div>
+                        <div>
+                            <div class="font-bold">Мария С.</div>
+                            <div class="text-sm text-gray-600">Воронеж</div>
+                        </div>
+                    </div>
+                    <div class="text-yellow-500 mb-3">★★★★★</div>
+                    <p class="text-gray-700">"Заказывали баню 4×4 с комплектацией Комфорт. Всё супер! Липа в парной создает невероятный аромат. Подарок - печь с камнями - приятный бонус."</p>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-xl mr-3">Д</div>
+                        <div>
+                            <div class="font-bold">Дмитрий К.</div>
+                            <div class="text-sm text-gray-600">Лиски</div>
+                        </div>
+                    </div>
+                    <div class="text-yellow-500 mb-3">★★★★★</div>
+                    <p class="text-gray-700">"Делали индивидуальный проект 6×6. Ребята учли все пожелания. Получилась баня мечты! Гости в восторге. Рекомендую!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA секция -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Готовы создать баню вашей мечты?</h2>
+            <p class="text-xl md:text-2xl mb-8 text-blue-100">Оставьте заявку сейчас и получите подарок на 45 000₽!</p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button onclick="openQuiz()" class="bg-white text-blue-600 px-10 py-5 rounded-lg font-bold text-xl hover:bg-gray-100 transition shadow-2xl">
+                    🎁 Получить расчет + подарок
+                </button>
+                <a href="tel:+79066773555" class="bg-green-500 text-white px-10 py-5 rounded-lg font-bold text-xl hover:bg-green-600 transition shadow-2xl">
+                    📞 Позвонить: +7 906 677-35-55
+                </a>
+            </div>
+            
+            <div class="mt-8 flex justify-center items-center space-x-8 text-sm">
+                <div class="flex items-center space-x-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>847 довольных клиентов</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>Гарантия 10 лет</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>Производство в Воронеже</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold mr-2">DH</div>
+                        <div class="font-bold text-white">Durov.House</div>
+                    </div>
+                    <p class="text-sm">Производство модульных и каркасных бань в Воронеже с 2015 года</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-white mb-4">Контакты</h4>
+                    <div class="space-y-2 text-sm">
+                        <div>г. Воронеж</div>
+                        <div><a href="tel:+79066773555" class="hover:text-white">+7 906 677-35-55</a></div>
+                        <div><a href="mailto:sales@durov.house" class="hover:text-white">sales@durov.house</a></div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-white mb-4">Продукция</h4>
+                    <div class="space-y-2 text-sm">
+                        <div><a href="#" class="hover:text-white">Модульные бани</a></div>
+                        <div><a href="#" class="hover:text-white">Каркасные бани</a></div>
+                        <div><a href="#" class="hover:text-white">Барнхаусы</a></div>
+                        <div><a href="#" class="hover:text-white">Модульные дома</a></div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-white mb-4">Информация</h4>
+                    <div class="space-y-2 text-sm">
+                        <div><a href="#" class="hover:text-white">О компании</a></div>
+                        <div><a href="#" class="hover:text-white">Производство</a></div>
+                        <div><a href="#" class="hover:text-white">Доставка</a></div>
+                        <div><a href="#" class="hover:text-white">Гарантия</a></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
+                <p>© 2025 Durov.House. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Плавающая кнопка -->
+    <div class="sticky-cta">
+        <button onclick="openQuiz()" class="cta-button text-white px-6 py-4 rounded-full font-bold shadow-2xl flex items-center space-x-2">
+            <span>🎁</span>
+            <span>Получить подарок</span>
+        </button>
+    </div>
+
+    <script>
+        let quizData = {};
+        let currentStep = 1;
+        let selectedContact = 'phone';
+        
+        function openQuiz() {
+            document.getElementById('quiz-section').classList.remove('hidden');
+            document.getElementById('quiz-section').scrollIntoView({behavior: 'smooth'});
+        }
+        
+        function nextStep(step, value) {
+            // Сохраняем выбор
+            quizData[`step${currentStep}`] = value;
+            
+            // Скрываем текущий шаг
+            document.querySelector(`.quiz-step[data-step="${currentStep}"]`).classList.remove('active');
+            
+            // Показываем следующий шаг
+            currentStep = step;
+            document.querySelector(`.quiz-step[data-step="${step}"]`).classList.add('active');
+            
+            // Обновляем прогресс бар
+            const progress = (step / 5) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+            
+            // Прокручиваем к началу квиза
+            document.getElementById('quiz-section').scrollIntoView({behavior: 'smooth'});
+        }
+        
+        function selectContact(type) {
+            selectedContact = type;
+            document.querySelectorAll('.contact-option').forEach(btn => {
+                btn.classList.remove('border-blue-500', 'border-green-500', 'bg-blue-50', 'bg-green-50');
+                btn.classList.add('border-gray-300');
+            });
+            event.target.classList.remove('border-gray-300');
+            if(type === 'phone') {
+                event.target.classList.add('border-blue-500', 'bg-blue-50');
+            } else {
+                event.target.classList.add('border-green-500', 'bg-green-50');
+            }
+        }
+        
+        document.getElementById('quiz-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Здесь отправка данных на сервер
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                location: document.getElementById('location').value,
+                contactMethod: selectedContact,
+                ...quizData
+            };
+            
+            console.log('Form data:', formData);
+            
+            // Показываем сообщение об успехе
+            alert('Спасибо! Мы свяжемся с вами в течение 15 минут и рассчитаем точную стоимость вашей бани + вручим подарок!');
+            
+            // Перенаправление на страницу благодарности
+            // window.location.href = '/thank-you';
+        });
+        
+        // Показать плавающую кнопку после прокрутки
+        window.addEventListener('scroll', function() {
+            const button = document.querySelector('.sticky-cta');
+            if(window.scrollY > 800) {
+                button.style.display = 'block';
+            } else {
+                button.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
