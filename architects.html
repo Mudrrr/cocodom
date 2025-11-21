@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для архитекторов и дизайн-студий | Световые решения</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a1a1a;
+            --secondary-color: #4a4a4a;
+            --accent-color: #d4af37;
+            --bg-light: #f8f8f8;
+            --bg-white: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-white);
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-white);
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Section */
+        section {
+            padding: 3rem 0;
+        }
+
+        section:nth-child(even) {
+            background: var(--bg-light);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
+            color: var(--primary-color);
+            padding: 4rem 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .hero .subtitle {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .hero .cta-button {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--primary-color);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            transition: transform 0.2s;
+        }
+
+        .hero .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .hero .note {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--primary-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        /* Tasks Block */
+        .tasks-list {
+            list-style: none;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .tasks-list li {
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            background: var(--bg-white);
+            border-left: 3px solid var(--accent-color);
+            border-radius: 4px;
+        }
+
+        .tasks-list li:before {
+            content: "→";
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg-white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .service-card:before {
+            content: "✓";
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: var(--accent-color);
+            color: var(--primary-color);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .service-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        /* Benefits */
+        .benefits-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .benefit-item {
+            padding: 1.5rem;
+            background: var(--bg-white);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .benefit-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary-color);
+        }
+
+        .benefit-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Process Steps */
+        .process-steps {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .process-step {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background: var(--accent-color);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .step-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .step-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Tools */
+        .tools-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .tools-list {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .tool-item {
+            padding: 1rem 1.5rem;
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 1rem;
+            background: var(--accent-color);
+            color: var(--primary-color);
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .form-note {
+            text-align: center;
+            margin-top: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* FAQ */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            background: var(--bg-white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+            font-size: 1.05rem;
+        }
+
+        .faq-answer {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Partners */
+        .partners-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .partner-card {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .partner-logo {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .partner-quote {
+            font-style: italic;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .partner-author {
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        /* Cases */
+        .cases-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .case-card {
+            background: var(--bg-white);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .case-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .case-content {
+            padding: 1.5rem;
+        }
+
+        .case-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .case-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        /* Tablet */
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cases-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .partners-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Desktop */
+        @media (min-width: 1024px) {
+            .hero {
+                padding: 6rem 0;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            section {
+                padding: 5rem 0;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .cases-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">LIGHT STUDIO</div>
+            <nav>
+                <span style="color: var(--accent-color); font-weight: 500;">Для архитекторов и дизайн-студий</span>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Световые решения для архитекторов и дизайн-студий</h1>
+            <p class="subtitle">Бесплатный расчёт, документация, подбор оборудования и сопровождение проекта</p>
+            <a href="#contact" class="cta-button">Обсудить сотрудничество</a>
+            <p class="note">Мы работаем с бюро, поддерживаем вашу концепцию и снимаем техническую часть по свету</p>
+        </div>
+    </section>
+
+    <!-- Tasks Section -->
+    <section id="tasks">
+        <div class="container">
+            <h2 class="section-title">Ваши задачи – наша зона ответственности</h2>
+            <ul class="tasks-list">
+                <li>Подготовка рабочих чертежей освещения</li>
+                <li>Интеграция светильников в архитектуру</li>
+                <li>Соблюдение сроков проекта</li>
+                <li>Минимизация рисков по свету</li>
+            </ul>
+            <p class="section-subtitle">Вы фокусируетесь на архитектуре, мы – на техническом совершенстве света.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">Наши услуги для вашего проекта</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Световой расчёт</h3>
+                    <p>Профессиональный расчёт в DIALux / Evo с импортом DWG/Revit</p>
+                </div>
+                <div class="service-card">
+                    <h3>Рабочая документация</h3>
+                    <p>Планы, схемы подключения, спецификации и ведомости</p>
+                </div>
+                <div class="service-card">
+                    <h3>Подбор оборудования</h3>
+                    <p>Премиальный технический свет под стиль вашего проекта</p>
+                </div>
+                <div class="service-card">
+                    <h3>Сопровождение</h3>
+                    <p>Поддержка монтажа и авторский надзор на объекте</p>
+                </div>
+            </div>
+            <p class="section-subtitle">Мы становимся вашей инженерной поддержкой по свету.</p>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits">
+        <div class="container">
+            <h2 class="section-title">Почему выбирают нас</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <h3>10+ лет опыта</h3>
+                    <p>Работаем с ведущими архитектурными бюро и дизайн-студиями</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>Полный цикл</h3>
+                    <p>От концепции до монтажа и сдачи объекта</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>Стандарты качества</h3>
+                    <p>Работаем через DIALux, соблюдаем нормы и стандарты</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>Контроль процесса</h3>
+                    <p>Соблюдение сроков и прозрачность на всех этапах</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>Премиум-решения</h3>
+                    <p>Работаем с ведущими брендами и современными технологиями</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>Партнёрский подход</h3>
+                    <p>Понимаем задачи архитектора, говорим на одном языке</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cases Section -->
+    <section id="cases">
+        <div class="container">
+            <h2 class="section-title">Примеры наших партнёрских проектов</h2>
+            <div class="cases-grid">
+                <div class="case-card">
+                    <div class="case-image">Фото проекта</div>
+                    <div class="case-content">
+                        <h3>Жилой комплекс премиум-класса</h3>
+                        <p>Комплексное световое решение для лобби и общественных зон</p>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-image">Фото проекта</div>
+                    <div class="case-content">
+                        <h3>Частная резиденция</h3>
+                        <p>Интеграция системы освещения в архитектуру загородного дома</p>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-image">Фото проекта</div>
+                    <div class="case-content">
+                        <h3>Коммерческий объект</h3>
+                        <p>Световой дизайн для офисного центра класса А</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process">
+        <div class="container">
+            <h2 class="section-title">Как мы работаем с вами</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Получение материалов</h3>
+                        <p>Вы присылаете планы, концепцию и техническое задание</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Разработка решения</h3>
+                        <p>Готовим световую концепцию и профессиональный расчёт</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Согласование</h3>
+                        <p>Обсуждаем с вами, вносим корректировки при необходимости</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Документация</h3>
+                        <p>Предоставляем полный комплект рабочей документации</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Поддержка</h3>
+                        <p>Сопровождаем реализацию и остаёмся на связи</p>
+                    </div>
+                </div>
+            </div>
+            <p class="section-subtitle">Прозрачный процесс – вы всегда знаете, что и когда происходит.</p>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section id="tools">
+        <div class="container">
+            <h2 class="section-title">Инструменты, с которыми мы работаем</h2>
+            <div class="tools-content">
+                <p>Мы используем DIALux/Evo, импортируем DWG/Revit, готовим спецификации, ведомости и визуализации. Это позволяет интегрироваться в вашу архитектурную цепочку.</p>
+                <div class="tools-list">
+                    <div class="tool-item">DIALux Evo</div>
+                    <div class="tool-item">AutoCAD DWG</div>
+                    <div class="tool-item">Revit</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Обсудим ваш проект</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Ваше имя *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Название бюро *</label>
+                    <input type="text" id="company" name="company" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Телефон *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="comment">Кратко опишите проект</label>
+                    <textarea id="comment" name="comment"></textarea>
+                </div>
+                <button type="submit" class="submit-button">Отправить запрос</button>
+                <p class="form-note">Мы свяжемся с вами в течение рабочего дня.</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq">
+        <div class="container">
+            <h2 class="section-title">Часто спрашивают</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">Какие форматы вы принимаете?</div>
+                    <div class="faq-answer">Мы работаем с DWG, Revit, PDF-планами и любыми другими архитектурными форматами. Можем импортировать модели напрямую в DIALux.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Сколько времени занимает расчёт?</div>
+                    <div class="faq-answer">В зависимости от масштаба проекта – от 3 до 10 рабочих дней. Срочные проекты обсуждаются индивидуально.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Предоставляете ли монтаж и авторский надзор?</div>
+                    <div class="faq-answer">Да, мы можем взять на себя как технический надзор, так и организацию монтажа с проверенными подрядчиками.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Можно ли выбрать конкретный бренд светильников?</div>
+                    <div class="faq-answer">Конечно. Мы работаем со всеми премиальными брендами и можем интегрировать в проект любые указанные вами модели.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Что, если потребуется корректировка проекта?</div>
+                    <div class="faq-answer">Мы предусматриваем 2-3 итерации правок в рамках проекта. Дополнительные изменения обсуждаются отдельно, но всегда идём навстречу.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section id="partners">
+        <div class="container">
+            <h2 class="section-title">Наши партнёры</h2>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <div class="partner-logo">ARCHBURO</div>
+                    <p class="partner-quote">«Работали над несколькими проектами. Профессиональный подход, точные расчёты и соблюдение сроков – именно то, что нужно архитектору.»</p>
+                    <p class="partner-author">— Мария Соколова, главный архитектор</p>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-logo">DESIGN STUDIO</div>
+                    <p class="partner-quote">«Команда, которая понимает дизайнерскую задачу и предлагает решения, идеально вписывающиеся в концепцию. Рекомендуем.»</p>
+                    <p class="partner-author">— Алексей Иванов, арт-директор</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Light Studio. Световые решения для архитектуры.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Спасибо! Мы получили ваш запрос и свяжемся с вами в ближайшее время.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
