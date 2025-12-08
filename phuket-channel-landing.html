@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новостройки Пхукета - Telegram канал</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') bottom center no-repeat;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .hero-value {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 500px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-value p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 18px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-top: 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .telegram-icon {
+            display: inline-block;
+            margin-right: 8px;
+            font-size: 20px;
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 60px 20px;
+        }
+
+        .section-light {
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2d3748;
+        }
+
+        /* Benefits Grid */
+        .benefits {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #667eea;
+        }
+
+        .benefit-icon {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .benefit-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2d3748;
+        }
+
+        .benefit-text {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        /* Examples Section */
+        .examples {
+            display: grid;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .example-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .example-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+            font-weight: 600;
+        }
+
+        .example-content {
+            padding: 20px;
+            color: #4a5568;
+        }
+
+        .example-content strong {
+            color: #2d3748;
+        }
+
+        /* Target Audience */
+        .audience-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .audience-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .audience-emoji {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .audience-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2d3748;
+        }
+
+        .audience-text {
+            color: #4a5568;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .final-cta p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .bonus-badge {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            border-radius: 8px;
+            padding: 15px 20px;
+            display: inline-block;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .benefits {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .audience-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>🏝️ Инвестиции в недвижимость Пхукета</h1>
+            <p class="hero-subtitle">Актуальные новостройки, цены и обзоры от эксперта на острове</p>
+            
+            <div class="hero-value">
+                <p><strong>Ежедневно в канале:</strong> новые проекты, реальные цены, аналитика рынка и инсайдерская информация от того, кто живет и работает на Пхукете</p>
+            </div>
+
+            <a href="https://t.me/novostroyki_phuket" class="cta-button" target="_blank">
+                <span class="telegram-icon">📱</span>
+                Подписаться на канал
+            </a>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Что вы получите в канале</h2>
+            
+            <div class="benefits">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🏗️</div>
+                    <h3 class="benefit-title">Первыми узнаете о новых проектах</h3>
+                    <p class="benefit-text">Анонсы новостроек до официального релиза, эксклюзивные предложения от девелоперов</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3 class="benefit-title">Реальные цены без накруток</h3>
+                    <p class="benefit-text">Актуальные ценники от застройщиков, сравнение стоимости м² в разных районах острова</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">📊</div>
+                    <h3 class="benefit-title">Аналитика и тренды рынка</h3>
+                    <p class="benefit-text">Какие районы растут в цене, где выгоднее купить, прогнозы развития локаций</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚠️</div>
+                    <h3 class="benefit-title">Честные отзывы о девелоперах</h3>
+                    <p class="benefit-text">С кем работать безопасно, а кого стоит избегать. Инсайды о качестве строительства</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Examples Section -->
+    <section class="section section-light">
+        <div class="container">
+            <h2 class="section-title">Примеры контента из канала</h2>
+            
+            <div class="examples">
+                <div class="example-card">
+                    <div class="example-header">📍 Обзор проекта Carolina от Title</div>
+                    <div class="example-content">
+                        <strong>Район:</strong> Раваи, 800м до пляжа<br>
+                        <strong>Цены:</strong> от 4,2 млн ₽ за студию 25 м²<br>
+                        <strong>ROI:</strong> 8-10% годовых на аренде<br>
+                        <strong>Застройщик:</strong> Title, опыт 15+ лет, 12 проектов на Пхукете
+                    </div>
+                </div>
+
+                <div class="example-card">
+                    <div class="example-header">💡 Аналитика: Равай vs Банг Тао</div>
+                    <div class="example-content">
+                        За последний год стоимость м² в Равае выросла на 12%, в то время как Банг Тао показал рост всего 5%. Причина: активная застройка инфраструктуры в южной части острова...
+                    </div>
+                </div>
+
+                <div class="example-card">
+                    <div class="example-header">🚨 Важно знать: юридические нюансы</div>
+                    <div class="example-content">
+                        Покупаете недвижимость через компанию? Вот 3 критических момента, которые нужно проверить в уставе, чтобы не потерять деньги...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Audience -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Этот канал для вас, если вы:</h2>
+            
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <div class="audience-emoji">💼</div>
+                    <h3 class="audience-title">Инвестор</h3>
+                    <p class="audience-text">Ищете надежные варианты вложений в зарубежную недвижимость</p>
+                </div>
+
+                <div class="audience-card">
+                    <div class="audience-emoji">🏖️</div>
+                    <h3 class="audience-title">Покупатель</h3>
+                    <p class="audience-text">Планируете купить квартиру или виллу на Пхукете для себя</p>
+                </div>
+
+                <div class="audience-card">
+                    <div class="audience-emoji">🔍</div>
+                    <h3 class="audience-title">Исследователь</h3>
+                    <p class="audience-text">Изучаете рынок и хотите принять взвешенное решение</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Начните получать инсайты уже сегодня</h2>
+            <p>Подпишитесь на канал и получите в первом сообщении чек-лист<br>«5 ошибок при покупке недвижимости на Пхукете»</p>
+            
+            <div class="bonus-badge">
+                🎁 Бонус для новых подписчиков
+            </div>
+            
+            <a href="https://t.me/novostroyki_phuket" class="cta-button" target="_blank">
+                <span class="telegram-icon">📱</span>
+                Подписаться бесплатно
+            </a>
+        </div>
+    </section>
+</body>
+</html>
