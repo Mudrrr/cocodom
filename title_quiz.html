@@ -405,6 +405,50 @@
             color: #22c55e;
         }
         
+        .project-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 16px;
+        }
+        
+        .project-btn {
+            padding: 14px 20px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .project-btn-primary {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+        }
+        
+        .project-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(34, 197, 94, 0.4);
+        }
+        
+        .project-btn-secondary {
+            background: white;
+            color: #166534;
+            border: 2px solid #22c55e;
+        }
+        
+        .project-btn-secondary:hover {
+            background: #f0fdf4;
+            transform: translateY(-2px);
+        }
+        
         .cta-buttons {
             display: grid;
             gap: 12px;
@@ -479,6 +523,15 @@
             
             .project-features {
                 grid-template-columns: 1fr;
+            }
+            
+            .project-actions {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-btn {
+                font-size: 13px;
+                padding: 12px 16px;
             }
         }
         
@@ -760,10 +813,11 @@
         <!-- Вопрос 4: Район -->
         <div class="question-wrapper" data-question="4">
             <div class="question-number">Вопрос 4 из 6</div>
-            <h2 class="question-text">Какой район предпочитаете?</h2>
+            <h2 class="question-text">Какие районы рассматриваете?</h2>
+            <p style="color: #64748b; font-size: 15px; margin-bottom: 24px; text-align: center;">Можно выбрать несколько вариантов</p>
             
             <div class="options-grid">
-                <div class="option-card" data-value="bangtao">
+                <div class="option-card district-option" data-value="bangtao">
                     <div class="option-icon">🏝️</div>
                     <div class="option-content">
                         <div class="option-title">Бангтао</div>
@@ -772,7 +826,7 @@
                     <div class="option-badge">✓</div>
                 </div>
                 
-                <div class="option-card" data-value="rawai">
+                <div class="option-card district-option" data-value="rawai">
                     <div class="option-icon">🌅</div>
                     <div class="option-content">
                         <div class="option-title">Раваи</div>
@@ -781,7 +835,7 @@
                     <div class="option-badge">✓</div>
                 </div>
                 
-                <div class="option-card" data-value="kamala">
+                <div class="option-card district-option" data-value="kamala">
                     <div class="option-icon">🏖️</div>
                     <div class="option-content">
                         <div class="option-title">Камала</div>
@@ -790,7 +844,7 @@
                     <div class="option-badge">✓</div>
                 </div>
                 
-                <div class="option-card" data-value="nayang">
+                <div class="option-card district-option" data-value="nayang">
                     <div class="option-icon">✈️</div>
                     <div class="option-content">
                         <div class="option-title">Наянг</div>
@@ -799,7 +853,7 @@
                     <div class="option-badge">✓</div>
                 </div>
                 
-                <div class="option-card" data-value="kata">
+                <div class="option-card district-option" data-value="kata">
                     <div class="option-icon">🏄</div>
                     <div class="option-content">
                         <div class="option-title">Ката</div>
@@ -808,7 +862,7 @@
                     <div class="option-badge">✓</div>
                 </div>
                 
-                <div class="option-card" data-value="any">
+                <div class="option-card district-option" data-value="any">
                     <div class="option-icon">📍</div>
                     <div class="option-content">
                         <div class="option-title">Любой подходящий</div>
@@ -966,7 +1020,7 @@
                         Открыть Telegram-канал
                     </a>
                     
-                    <a href="https://wa.me/66999983818" class="cta-btn cta-btn-secondary" target="_blank">
+                    <a href="https://wa.me/66979181600" class="cta-btn cta-btn-secondary" target="_blank">
                         💬 Связаться с экспертом
                     </a>
                 </div>
@@ -1138,7 +1192,7 @@ let answers = {
     propertyType: null,
     purpose: null,
     budget: null,
-    district: null,
+    districts: [], // Changed to array for multiple selection
     bedrooms: null,
     name: '',
     channel: null,
@@ -1234,15 +1288,46 @@ document.querySelectorAll('.option-card').forEach(card => {
         const questionWrapper = this.closest('.question-wrapper');
         const questionNum = questionWrapper.dataset.question;
         
-        // Снять выделение с других карточек в той же группе
+        // Специальная логика для районов (множественный выбор)
+        if (this.classList.contains('district-option')) {
+            const value = this.dataset.value;
+            
+            // Если выбрали "Любой подходящий", снять все остальные
+            if (value === 'any') {
+                questionWrapper.querySelectorAll('.district-option').forEach(c => {
+                    c.classList.remove('selected');
+                });
+                this.classList.add('selected');
+                answers.districts = ['any'];
+            } else {
+                // Снять "Любой подходящий" если выбираем конкретный район
+                questionWrapper.querySelector('[data-value="any"]').classList.remove('selected');
+                
+                // Переключить выделение
+                this.classList.toggle('selected');
+                
+                // Обновить массив районов
+                if (this.classList.contains('selected')) {
+                    if (!answers.districts.includes(value)) {
+                        answers.districts.push(value);
+                    }
+                } else {
+                    answers.districts = answers.districts.filter(d => d !== value);
+                }
+            }
+            
+            // Активировать кнопку если выбран хотя бы один район
+            document.getElementById('nextBtn4').disabled = answers.districts.length === 0;
+            return;
+        }
+        
+        // Обычная логика для остальных вопросов (один выбор)
         questionWrapper.querySelectorAll('.option-card').forEach(c => {
             c.classList.remove('selected');
         });
         
-        // Выделить выбранную карточку
         this.classList.add('selected');
         
-        // Сохранить ответ
         const value = this.dataset.value;
         switch(questionNum) {
             case '1':
@@ -1256,10 +1341,6 @@ document.querySelectorAll('.option-card').forEach(card => {
             case '3':
                 answers.budget = value;
                 document.getElementById('nextBtn3').disabled = false;
-                break;
-            case '4':
-                answers.district = value;
-                document.getElementById('nextBtn4').disabled = false;
                 break;
             case '5':
                 answers.bedrooms = value;
@@ -1325,14 +1406,15 @@ function matchProjects() {
             score += 3;
         }
         
-        // Проверка района
-        if (answers.district === 'any' || project.district === answers.district) {
+        // Проверка района (с поддержкой множественного выбора)
+        if (answers.districts.includes('any') || 
+            answers.districts.includes(project.district)) {
             score += 2;
         }
         
         // Если подходит хотя бы по 2 параметрам
         if (score >= 5) {
-            matched.push({ ...project, score });
+            matched.push({ ...project, score, key: projectKey });
         }
     }
     
@@ -1352,6 +1434,12 @@ function showResults() {
     recommendedProjects.forEach(project => {
         const card = document.createElement('div');
         card.className = 'project-card';
+        
+        // Формируем текст для WhatsApp
+        const whatsappText = encodeURIComponent(`Здравствуйте, меня интересует ${project.name}`);
+        const whatsappViewLink = `https://wa.me/66979181600?text=${whatsappText}`;
+        const whatsappConsultLink = `https://wa.me/66979181600?text=${encodeURIComponent('Здравствуйте, хочу получить консультацию по недвижимости The Title')}`;
+        
         card.innerHTML = `
             <div class="project-name">${project.name}</div>
             <div class="project-location">📍 ${project.location}</div>
@@ -1380,6 +1468,15 @@ function showResults() {
                 <div style="margin-top: 8px; font-size: 14px; color: #166534;">
                     ${project.features.join(' • ')}
                 </div>
+            </div>
+            
+            <div class="project-actions">
+                <a href="${whatsappViewLink}" class="project-btn project-btn-primary" target="_blank">
+                    📅 Записаться на просмотр
+                </a>
+                <a href="${whatsappConsultLink}" class="project-btn project-btn-secondary" target="_blank">
+                    💬 Консультация
+                </a>
             </div>
         `;
         projectsContainer.appendChild(card);
